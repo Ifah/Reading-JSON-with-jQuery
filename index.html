@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>JSON with jQuery</title>
+</head>
+<body>
+	<script src="js/jquery-1.11.1.min.js"></script>
+	<script>
+
+		/*
+		$.getJSON('articles.json', function(data){
+			console.log('it worked');
+			console.log(data);
+		});
+		*/
+
+		$.ajax({
+			url: 'articles.json',
+			data: 'json',
+			type: 'get',
+			cache: false,
+			success: function(data){
+				$(data.articles).each(function(index, value){
+					console.log(value.id, value.name);
+					// console.log(value.name);
+				});
+			}
+		});
+
+	</script>
+</body>
+</html>
